@@ -104,7 +104,7 @@ public class CustomCommand {
 
     /**
      * @param config Конфиг плагина.
-     *               <br>Регистрирует новую команду</br>
+     *               <br>Регистрирует новую команду
      */
     public void register(Config config) {
         Bukkit.getCommandMap().register("sal4idev",

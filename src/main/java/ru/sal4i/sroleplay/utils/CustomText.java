@@ -16,7 +16,7 @@ public class CustomText {
 
     /**
      * @param text Описание для команды
-     *             <br>Устанавливает описание для команды</br>
+     *             <br>Устанавливает описание для команды
      */
     public void setDescription(String text) {
         String colorText = Other.color(text);
@@ -30,7 +30,7 @@ public class CustomText {
 
     /**
      * @param command Команда
-     *                <br>Устанавливает текст при нажатии на сообщение</br>
+     *                <br>Устанавливает текст при нажатии на сообщение
      */
     public void setSuggestCommand(String command) {
         ClickEvent clickEvent = new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND,
@@ -48,7 +48,7 @@ public class CustomText {
     /**
      * @param location Локация игрока
      * @param radius   Радиус для нахождения игроков
-     *                 <br>Отправляет сообщение игрокам в радиусе </br>
+     *                 <br>Отправляет сообщение игрокам в радиусе
      */
     public void sendNearbyPlayers(Location location, double radius) {
         location.getNearbyPlayers(radius).forEach(this::sendMessage);
@@ -56,7 +56,7 @@ public class CustomText {
 
     /**
      * @param sender Получатель сообщения
-     *               <br>Отправляет сообщение </br>
+     *               <br>Отправляет сообщение
      */
     public void sendMessage(CommandSender sender) {
         sender.sendMessage(component);
