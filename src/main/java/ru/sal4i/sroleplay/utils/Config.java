@@ -32,11 +32,11 @@ public class Config {
         assert messages != null;
         assert commands != null;
 
-        cooldownMessage = color(messages.getString("cooldown"));
-        reloadMessage = color(messages.getString("reload"));
-        playersOnly = color(messages.getString("playersOnly"));
-        trySuccess = color(messages.getString("trySuccess"));
-        tryFail = color(messages.getString("tryFail"));
+        cooldownMessage  = color(messages.getString("cooldown"));
+        reloadMessage    = color(messages.getString("reload"));
+        playersOnly      = color(messages.getString("playersOnly"));
+        trySuccess       = color(messages.getString("trySuccess"));
+        tryFail          = color(messages.getString("tryFail"));
 
         for (String id : commands.getKeys(false)) {
             plugin.getServer().getCommandMap()
