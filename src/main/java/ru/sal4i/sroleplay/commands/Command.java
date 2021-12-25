@@ -89,7 +89,7 @@ public class Command extends BukkitCommand {
         String withPlaceholders = display;
 
         if (withPlaceholders.contains("{message1}")
-            || withPlaceholders.contains("{message2}")) {
+                || withPlaceholders.contains("{message2}")) {
             String[] split = message.split("\\*", 2);
             if (split.length != 2 || split[1].isEmpty()) {
                 sendUsage(player, label);
@@ -109,14 +109,12 @@ public class Command extends BukkitCommand {
                 .replace("{number}", getRandomNumber());
     }
 
-
     /**
      * @return Случайное число от 1(включительно) до 101(не включительно)
      */
     private @NotNull String getRandomNumber() {
         return ThreadLocalRandom.current().nextInt(1, 101) + "";
     }
-
 
     /**
      * @param sender Отправитель команды
