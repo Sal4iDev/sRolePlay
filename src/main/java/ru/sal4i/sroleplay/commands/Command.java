@@ -131,7 +131,7 @@ public class Command extends BukkitCommand {
     }
 
     /**
-     * @return Решение для <code>/try</code>
+     * @return Решение для <code>/try
      */
     private @NotNull String getRandomResult() {
         return Math.random() < 0.5D ?

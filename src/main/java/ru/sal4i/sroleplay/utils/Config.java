@@ -89,14 +89,14 @@ public class Config {
     }
 
     /**
-     * @return Успешное <code>/try</code> сообщение
+     * @return Успешное <code>/try сообщение
      */
     public String getTrySuccess() {
         return trySuccess;
     }
 
     /**
-     * @return Неуспешное <code>/try</code> сообщение
+     * @return Неуспешное <code>/try сообщение
      */
     public String getTryFail() {
         return tryFail;
