@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>sRolePlay</h1>
+  <h1>sRolePlay 1.18+</h1>
   <h3>Создавайте свои РолеПлей команды!</h3>
 </div>
 
