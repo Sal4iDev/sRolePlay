@@ -1,0 +1,12 @@
+name: sRolePlay
+main: ru.sal4i.sroleplay.SRolePlay
+version: '$version'
+author: Sal4iDev
+website: §bSal4iDev#4767
+api-version: 1.18
+load: STARTUP
+
+commands:
+  sroleplay:
+    aliases: [ roleplay ]
+    permission: sroleplay.reload
