@@ -1,2 +1,2 @@
-rootProject.name = "RolePlay"
+rootProject.name = "sRolePlay"
 
