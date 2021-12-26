@@ -18,6 +18,7 @@ public class CustomText {
      * @param text Описание для команды
      *             <br>Устанавливает описание для команды
      */
+    @SuppressWarnings("deprecation")
     public void setDescription(String text) {
         String colorText = Other.color(text);
         HoverEvent hoverEvent = new HoverEvent(HoverEvent.Action.SHOW_TEXT,
@@ -58,6 +59,7 @@ public class CustomText {
      * @param sender Получатель сообщения
      *               <br>Отправляет сообщение
      */
+    @SuppressWarnings("deprecation")
     public void sendMessage(CommandSender sender) {
         sender.sendMessage(component);
     }

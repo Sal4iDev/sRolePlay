@@ -1,7 +1,8 @@
 package ru.sal4i.sroleplay;
 
+import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
-import ru.sal4i.sroleplay.commands.RolePlayCommand;
+import ru.sal4i.sroleplay.commands.ReloadCommand;
 import ru.sal4i.sroleplay.utils.Config;
 
 public class SRolePlay extends JavaPlugin {
@@ -19,6 +20,12 @@ public class SRolePlay extends JavaPlugin {
         instance = this;
         Config config = new Config(instance, getConfig());
 
-        getCommand("sroleplay").setExecutor(new RolePlayCommand(config));
+        PluginCommand command = getCommand("sroleplay");
+        if (command == null) {
+            getLogger().warning("Команда /sroleplay не зарегистрирована в plugin.yml!");
+            getLogger().warning("Команда отключена...");
+        } else {
+            command.setExecutor(new ReloadCommand(config));
+        }
     }
 }

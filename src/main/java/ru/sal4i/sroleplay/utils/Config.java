@@ -1,5 +1,6 @@
 package ru.sal4i.sroleplay.utils;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.jetbrains.annotations.Contract;
@@ -38,23 +39,29 @@ public class Config {
         trySuccess = color(messages.getString("trySuccess"));
         tryFail = color(messages.getString("tryFail"));
 
-        for (String id : commands.getKeys(false)) {
+        for (String commandName : commands.getKeys(false)) {
             plugin.getServer().getCommandMap()
-                    .getKnownCommands().remove(id);
-            ConfigurationSection command = commands.getConfigurationSection(id);
+                    .getKnownCommands().remove(commandName);
+            ConfigurationSection command = commands.getConfigurationSection(commandName);
             assert command != null;
 
             boolean isSelf;
+            String permission = command.getString("permission");
+            String noPermission = command.getString("noPermission");
             try {
                 isSelf = command.getBoolean("self");
             } catch (NullPointerException exception) {
                 isSelf = false;
             }
+            if (noPermission == null) {
+                noPermission = Bukkit.getPermissionMessage();
+            }
 
             String display = command.getString("display");
             String description = command.getString("description");
             String usage = command.getString("usage");
-            CustomCommand customCommand = new CustomCommand(id, display, description, usage, isSelf);
+            CustomCommand customCommand = new CustomCommand(commandName, display, description, usage,
+                    permission, noPermission, isSelf);
 
             double radius = command.getDouble("radius");
             customCommand.setRadius(radius);

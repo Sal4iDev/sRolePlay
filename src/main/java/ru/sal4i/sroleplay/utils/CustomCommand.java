@@ -3,26 +3,30 @@ package ru.sal4i.sroleplay.utils;
 import org.bukkit.Bukkit;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.sal4i.sroleplay.commands.Command;
+import ru.sal4i.sroleplay.commands.RolePlayCommand;
 
 public class CustomCommand {
-    private final String id, display, description, usage;
+    private final String name, display, description, usage, permission, noPermission;
     private final boolean isSelf;
     private double radius, cooldown;
 
-    public CustomCommand(String id, String display, String description, String usage, boolean isSelf) {
-        this.id = id;
+    public CustomCommand(String name, String display, String description, String usage,
+                         String permission, String noPermission, boolean isSelf) {
+        this.name = name;
         this.display = Other.color(display);
         this.description = Other.color(description);
-        this.usage = usage == null ? null : Other.color(usage);
+        this.usage = (usage == null) ? null : Other.color(usage);
+        this.permission = permission;
+        this.noPermission = (noPermission == null)
+                ? Bukkit.getPermissionMessage() : noPermission;
         this.isSelf = isSelf;
     }
 
     /**
-     * @return Айди команды
+     * @return Имя команды
      */
-    public @NotNull String getId() {
-        return id;
+    public @NotNull String getName() {
+        return name;
     }
 
     /**
@@ -44,6 +48,20 @@ public class CustomCommand {
      */
     public @Nullable String getUsage() {
         return usage;
+    }
+
+    /**
+     * @return Право на выполнение команды
+     */
+    public @Nullable String getPermission() {
+        return permission;
+    }
+
+    /**
+     * @return Сообщение о не хватке прав на выполнение команды
+     */
+    public @NotNull String getNoPermission() {
+        return noPermission;
     }
 
     /**
@@ -108,7 +126,7 @@ public class CustomCommand {
      */
     public void register(Config config) {
         Bukkit.getCommandMap().register("sal4idev",
-                new Command(this, config));
+                new RolePlayCommand(this, config));
     }
 }
 
